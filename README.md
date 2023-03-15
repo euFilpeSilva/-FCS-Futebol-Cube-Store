@@ -1,4 +1,4 @@
-# -FCS-Futebol-Cube-Store
+# (FCS) - Futebol-Cube-Store
 
 OBJETIVO DO PROJETO/DESCRIÇÃO:
 
