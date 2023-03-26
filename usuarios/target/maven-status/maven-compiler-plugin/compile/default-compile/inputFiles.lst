@@ -1,0 +1,12 @@
+D:\projeto_LojaVIRTUAL\lojaVirtual\futebolClubeStore\usuarios\src\main\java\br\com\loja\virtual\usuarios\config\ModelMapperConfig.java
+D:\projeto_LojaVIRTUAL\lojaVirtual\futebolClubeStore\usuarios\src\main\java\br\com\loja\virtual\usuarios\services\converter\mapper\GenericMapper.java
+D:\projeto_LojaVIRTUAL\lojaVirtual\futebolClubeStore\usuarios\src\main\java\br\com\loja\virtual\usuarios\domain\repository\UsuarioRepository.java
+D:\projeto_LojaVIRTUAL\lojaVirtual\futebolClubeStore\usuarios\src\main\java\br\com\loja\virtual\usuarios\UsuariosApplication.java
+D:\projeto_LojaVIRTUAL\lojaVirtual\futebolClubeStore\usuarios\src\main\java\br\com\loja\virtual\usuarios\config\CorsConfig.java
+D:\projeto_LojaVIRTUAL\lojaVirtual\futebolClubeStore\usuarios\src\main\java\br\com\loja\virtual\usuarios\config\SwaggerConfig.java
+D:\projeto_LojaVIRTUAL\lojaVirtual\futebolClubeStore\usuarios\src\main\java\br\com\loja\virtual\usuarios\controllers\UsuariosController.java
+D:\projeto_LojaVIRTUAL\lojaVirtual\futebolClubeStore\usuarios\src\main\java\br\com\loja\virtual\usuarios\domain\dto\UsuariosDTO.java
+D:\projeto_LojaVIRTUAL\lojaVirtual\futebolClubeStore\usuarios\src\main\java\br\com\loja\virtual\usuarios\services\UsuariosService.java
+D:\projeto_LojaVIRTUAL\lojaVirtual\futebolClubeStore\usuarios\src\main\java\br\com\loja\virtual\usuarios\domain\entity\Usuarios.java
+D:\projeto_LojaVIRTUAL\lojaVirtual\futebolClubeStore\usuarios\src\main\java\br\com\loja\virtual\usuarios\services\converter\Converter.java
+D:\projeto_LojaVIRTUAL\lojaVirtual\futebolClubeStore\usuarios\src\main\java\br\com\loja\virtual\usuarios\config\ExceptionControllerAdvice.java

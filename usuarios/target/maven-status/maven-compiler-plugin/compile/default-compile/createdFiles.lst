@@ -1,0 +1,13 @@
+br\com\loja\virtual\usuarios\config\ExceptionControllerAdvice.class
+br\com\loja\virtual\usuarios\domain\dto\UsuariosDTO.class
+br\com\loja\virtual\usuarios\domain\entity\Usuarios.class
+br\com\loja\virtual\usuarios\controllers\UsuariosController.class
+br\com\loja\virtual\usuarios\services\converter\Converter$1.class
+br\com\loja\virtual\usuarios\domain\repository\UsuarioRepository.class
+br\com\loja\virtual\usuarios\config\CorsConfig.class
+br\com\loja\virtual\usuarios\services\converter\Converter.class
+br\com\loja\virtual\usuarios\services\converter\mapper\GenericMapper.class
+br\com\loja\virtual\usuarios\services\UsuariosService.class
+br\com\loja\virtual\usuarios\config\ModelMapperConfig.class
+br\com\loja\virtual\usuarios\config\SwaggerConfig.class
+br\com\loja\virtual\usuarios\UsuariosApplication.class
