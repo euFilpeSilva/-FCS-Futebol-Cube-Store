@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="RemoteRepositoriesConfiguration">
+    <remote-repository>
+      <option name="id" value="central" />
+      <option name="name" value="Central Repository" />
+      <option name="url" value="https://repo.maven.apache.org/maven2" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="br.com.loja.virtual" />
+      <option name="name" value="br.com.loja.virtual" />
+      <option name="url" value="file://D:\projeto_LojaVIRTUAL\lojaVirtual\futebolClubeStore/../core/target" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="project.repo" />
+      <option name="name" value="project.repo" />
+      <option name="url" value="file://D:\projeto_LojaVIRTUAL\lojaVirtual\futebolClubeStore\blusas/../core/target" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="br.com.loja.virtual" />
+      <option name="name" value="br.com.loja.virtual" />
+      <option name="url" value="file://D:\projeto_LojaVIRTUAL\lojaVirtual\futebolClubeStore\usuarios/../core/target" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="central" />
+      <option name="name" value="Maven Central repository" />
+      <option name="url" value="https://repo1.maven.org/maven2" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="br.com.loja.virtual" />
+      <option name="name" value="br.com.loja.virtual" />
+      <option name="url" value="file://${br.com.loja.virtual}/../core/target" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="br.com.loja.virtual" />
+      <option name="name" value="br.com.loja.virtual" />
+      <option name="url" value="file://D:\projeto_LojaVIRTUAL\lojaVirtual\futebolClubeStore\core/../core/target" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="br.com.loja.virtual" />
+      <option name="name" value="br.com.loja.virtual" />
+      <option name="url" value="file://D:\projeto_LojaVIRTUAL\lojaVirtual\futebolClubeStore\pedidos/../core/target" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="br.com.loja.virtual" />
+      <option name="name" value="br.com.loja.virtual" />
+      <option name="url" value="file://D:\projeto_LojaVIRTUAL\lojaVirtual\futebolClubeStore\carrinho/../core/target" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="br.com.loja.virtual" />
+      <option name="name" value="br.com.loja.virtual" />
+      <option name="url" value="file://D:\projeto_LojaVIRTUAL\lojaVirtual\futebolClubeStore\blusas/../core/target" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="spring-milestones" />
+      <option name="name" value="Spring Milestones" />
+      <option name="url" value="https://repo.spring.io/milestone" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="jboss.community" />
+      <option name="name" value="JBoss Community repository" />
+      <option name="url" value="https://repository.jboss.org/nexus/content/repositories/public/" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="spring-snapshots" />
+      <option name="name" value="Spring Snapshots" />
+      <option name="url" value="https://repo.spring.io/snapshot" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="70c85365-edf7-4ddf-a5bb-a21bd195867a" />
+      <option name="name" value="70c85365-edf7-4ddf-a5bb-a21bd195867a" />
+      <option name="url" value="file://br.com.loja.virtual/../core/target" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="br.com.loja.virtual" />
+      <option name="name" value="br.com.loja.virtual" />
+      <option name="url" value="file://br.com.loja.virtual/../core/target" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="br.com.loja.virtual" />
+      <option name="name" value="br.com.loja.virtual" />
+      <option name="url" value="file://D:\projeto_LojaVIRTUAL\lojaVirtual\futebolClubeStore\times/../core/target" />
+    </remote-repository>
+  </component>
+</project>
