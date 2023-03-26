@@ -1,4 +1,4 @@
-package br.com.lojaVirtual.fcs.futebolClubeStore.blusa;
+package br.com.lojaVirtual.fcs.futebolClubeStore.blusa.src.main.java.br.com.lojaVirtual.fcs.futebolClubeStore.blusa;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
