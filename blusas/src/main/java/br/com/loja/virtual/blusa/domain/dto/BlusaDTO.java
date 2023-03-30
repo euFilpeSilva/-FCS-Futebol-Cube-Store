@@ -24,5 +24,5 @@ public class BlusaDTO implements Serializable {
     private String imagem;
 
 //Cada time tem varias blusas e cada blusa contem um só time
-    private Long timeId;
+
 }

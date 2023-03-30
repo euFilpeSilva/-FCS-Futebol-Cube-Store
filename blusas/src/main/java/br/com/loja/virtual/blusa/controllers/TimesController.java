@@ -1,6 +1,7 @@
-package br.com.loja.virtual.times.controllers;
+package br.com.loja.virtual.blusa.controllers;
 
-import br.com.loja.virtual.times.services.TimesService;
+
+import br.com.loja.virtual.blusa.services.TimesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

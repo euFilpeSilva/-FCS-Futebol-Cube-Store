@@ -14,25 +14,25 @@ import java.util.List;
 public class BlusaController {
 
     @Autowired
-    private BlusaService blusaService;
+    private BlusaService blusasService;
 
     @GetMapping
     public ResponseEntity<List<BlusaDTO>> listarBlusas() {
-        return new ResponseEntity<>(blusaService.listarBlusas(), HttpStatus.OK);
+        return new ResponseEntity<>(blusasService.listarBlusas(), HttpStatus.OK);
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<BlusaDTO> buscarBlusaPorId(@PathVariable Long id) {
-        return new ResponseEntity<>(blusaService.buscarBlusaPorId(id), HttpStatus.OK);
+        return new ResponseEntity<>(blusasService.buscarBlusaPorId(id), HttpStatus.OK);
     }
 
     @PostMapping("/")
     public ResponseEntity<String> criarBlusa(@RequestBody BlusaDTO blusaDTO) {
-        return new ResponseEntity<>(blusaService.criarBlusa(blusaDTO), HttpStatus.CREATED);
+        return new ResponseEntity<>(blusasService.criarBlusa(blusaDTO), HttpStatus.CREATED);
     }
 
     @PutMapping("/{id}")
     public ResponseEntity<BlusaDTO> editarBlusa(@RequestBody BlusaDTO blusaDTO, @PathVariable Long id) {
-        return new ResponseEntity<>(blusaService.editarBlusa(blusaDTO, id), HttpStatus.OK);
+        return new ResponseEntity<>(blusasService.editarBlusa(blusaDTO, id), HttpStatus.OK);
     }
 }

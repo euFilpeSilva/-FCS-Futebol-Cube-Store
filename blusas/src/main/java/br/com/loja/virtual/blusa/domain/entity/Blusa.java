@@ -31,6 +31,8 @@ public class Blusa {
     private String imagem;
 
     //Cada time tem varias blusas e cada blusa contem um só time
-    private Long timeId;
+    @ManyToOne
+    @JoinColumn(name = "time_id")
+    private Time time;
 
 }

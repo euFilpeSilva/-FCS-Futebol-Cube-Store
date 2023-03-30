@@ -1,7 +1,10 @@
-package br.com.loja.virtual.times.domain.entity;
+package br.com.loja.virtual.blusa.domain.entity;
+
 import lombok.*;
+
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 @Builder
 @EqualsAndHashCode
@@ -24,5 +27,8 @@ public class Time implements Serializable {
     private String escudo;
 
 //Cada time tem varias blusas e cada blusa contem um só time
+    @OneToMany(mappedBy = "time")
+    private List<Blusa> blusas;
+
 
 }

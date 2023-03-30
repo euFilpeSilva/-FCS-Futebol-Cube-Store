@@ -1,6 +1,6 @@
-package br.com.loja.virtual.times.domain.repository;
+package br.com.loja.virtual.blusa.domain.repository;
 
-import br.com.loja.virtual.times.domain.entity.Time;
+import br.com.loja.virtual.blusa.domain.entity.Time;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

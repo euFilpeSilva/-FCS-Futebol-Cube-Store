@@ -28,7 +28,7 @@ public class SwaggerConfig implements WebMvcConfigurer {
 
     private ApiInfo apiInfoMetaData() {
 
-        return new ApiInfoBuilder().title("Blusas")
+        return new ApiInfoBuilder().title("Usuarios")
                 .description("API endpoints")
                 .contact(new Contact("FCS", "http://localhost:8081/swagger-ui/index.html", "dev-team@gmail.com"))
                 .license("Apache 2.0")

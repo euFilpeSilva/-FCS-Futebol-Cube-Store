@@ -11,17 +11,11 @@
 	<url>http://maven.apache.org</url>
 
 	<dependencies>
-		<dependency>
-			<groupId>br.com.loja.virtual</groupId>
-			<artifactId>core</artifactId>
-			<version>-SNAPSHOT</version>
-		</dependency>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-webmvc</artifactId>
             <version>5.3.24</version>
         </dependency>
-
     </dependencies>
 
 </project>

@@ -1,4 +1,4 @@
-package br.com.loja.virtual.times.domain.dto;
+package br.com.loja.virtual.blusa.domain.dto;
 
 //import br.com.loja.virtual.blusa.domain.dto.BlusaDTO;
 import lombok.AllArgsConstructor;

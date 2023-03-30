@@ -25,4 +25,21 @@ public class UsuariosService {
                 .map(usuario -> Converter.converter(usuario, UsuariosDTO.class))
                 .collect(Collectors.toList());
     }
+
+    public UsuariosDTO buscarUsuario(Long id) {
+        Usuarios usuario = usuarioRepository.findById(id).orElse(null);
+        return Converter.converter(usuario, UsuariosDTO.class);
+    }
+
+    public String updateUsuario(UsuariosDTO usuarioDTO, Long id) {
+        Usuarios usuario = Converter.converter(usuarioDTO, Usuarios.class);
+        usuarioRepository.save(usuario);
+        return "Usuário atualizado com sucesso!";
+    }
+
+    public String cadastrarUsuario(UsuariosDTO usuarioDTO) {
+        Usuarios usuario = Converter.converter(usuarioDTO, Usuarios.class);
+        usuarioRepository.save(usuario);
+        return "Usuário cadastrado com sucesso!";
+    }
 }

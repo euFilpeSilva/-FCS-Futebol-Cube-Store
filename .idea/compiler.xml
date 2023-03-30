@@ -15,13 +15,15 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="blusas" />
-        <module name="core" />
-        <module name="times" />
         <module name="carrinho" />
         <module name="pedidos" />
         <module name="usuarios" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="core" target="17" />
+      <module name="times" target="17" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
