@@ -1,7 +1,7 @@
 # FCS-FutebolCubeStore
 Loja projetada para venda de blusas de times de futebol.
 
-## IMPORTANTE - LEIA!!
+## DICAS IMPORTANTES - LEIA!!
 
 ### Antes de iniciar o desenvolvimento, algumas observações e cuidados importantes a serem tomados são:
 
