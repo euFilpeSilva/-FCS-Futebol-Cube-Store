@@ -1,5 +1,0 @@
-br\com\loja\virtual\blusa\config\CorsConfig.class
-br\com\loja\virtual\blusa\config\SwaggerConfig.class
-br\com\loja\virtual\blusa\config\ExceptionControllerAdvice.class
-br\com\loja\virtual\blusa\config\ModelMapperConfig.class
-br\com\loja\virtual\pedidos\PedidosApplication.class
