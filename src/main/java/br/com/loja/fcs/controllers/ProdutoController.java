@@ -21,7 +21,7 @@ public class ProdutoController {
     private ProdutoService produtoService;
 
     @PreAuthorize("hasRole('ADMIN','USER')")
-    @GetMapping
+    @GetMapping("/listar")
     @ApiOperation(value = "Lista de produtos")
     public ResponseEntity<List<ProdutoDTO>> listarP() {
         return new ResponseEntity<>(produtoService.listarProdutos(), HttpStatus.OK);

@@ -7,6 +7,7 @@ import br.com.loja.fcs.services.UsuarioRoleService;
 import br.com.loja.fcs.services.UsuariosService;
 import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -21,12 +22,14 @@ public class UsuariosController {
     @Autowired
     UsuarioRoleService createRoleUserService;
 
+    @PreAuthorize("hasRole('ADMIN)")
     @PostMapping("/create")
     public Usuario create(@RequestBody Usuario user) {
 
         return createUserService.execute(user);
     }
 
+    @PreAuthorize("hasRole('ADMIN)")
     @PostMapping("/role")
     public Usuario role(@RequestBody UsuarioRoleDTO createUserRoleDTO) {
         return createRoleUserService.execute(createUserRoleDTO);

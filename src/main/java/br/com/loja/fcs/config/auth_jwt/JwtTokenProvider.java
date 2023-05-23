@@ -1,6 +1,7 @@
 package br.com.loja.fcs.config.auth_jwt;
 
 import br.com.loja.fcs.config.security.UserPrincipal;
+import br.com.loja.fcs.domain.entity.Role;
 import io.jsonwebtoken.*;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.Authentication;
@@ -8,6 +9,8 @@ import org.springframework.stereotype.Component;
 
 import java.security.SignatureException;
 import java.util.Date;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Component
 public class JwtTokenProvider {
@@ -23,17 +26,22 @@ public class JwtTokenProvider {
         Date now = new Date();
         Date expiryDate = new Date(now.getTime() + jwtExpirationInMs);
 
+        List<String> roleNames = userPrincipal.getRoles().stream()
+                .map(Role::getName) // Obtém apenas o nome das roles
+                .collect(Collectors.toList());
+
         return Jwts.builder()
                 .setSubject(userPrincipal.getUsername())
-                .claim("id", userPrincipal.getId()) // Adiciona o ID do usuário como uma claim
-                .claim("username", userPrincipal.getUsername()) // Adiciona o username do usuário como uma claim
-                .claim("password", userPrincipal.getPassword()) // Adiciona a password do usuário como uma claim
-                .claim("roles", userPrincipal.getRoles()) // Adiciona as roles do usuário como uma claim
+                .claim("id", userPrincipal.getId())
+                .claim("username", userPrincipal.getUsername())
+                .claim("password", userPrincipal.getPassword())
+                .claim("roles", roleNames) // Adiciona as roles como uma claim de lista de strings
                 .setIssuedAt(new Date())
                 .setExpiration(expiryDate)
                 .signWith(SignatureAlgorithm.HS512, jwtSecret)
                 .compact();
     }
+
 
     public String getUsernameFromToken(String token) {
         Claims claims = Jwts.parser()

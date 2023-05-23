@@ -7,6 +7,7 @@ import br.com.loja.fcs.domain.repository.ProdutoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.security.RolesAllowed;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -22,6 +23,7 @@ public class ProdutoService {
     public ProdutoService() {
     }
 
+//    @RolesAllowed({"ADMIN", "USER"})
     public List<ProdutoDTO> listarProdutos() {
         List<Produto> produtos = produtoRepository.findAllByOrderByIdAsc();
         return produtos.stream()

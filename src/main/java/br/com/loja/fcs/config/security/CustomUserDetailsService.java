@@ -20,7 +20,7 @@ public class CustomUserDetailsService implements UserDetailsService {
     @Transactional
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 
-        Usuario existsUser = userRepository.findByUsernameFetchRoles(username);
+        Usuario existsUser = userRepository.findByUsername(username);
 
         if (existsUser == null) {
             throw new UsernameNotFoundException("User not found with username: " + username);

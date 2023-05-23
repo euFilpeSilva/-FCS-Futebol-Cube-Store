@@ -1,5 +1,6 @@
 package br.com.loja.fcs.config.security;
 
+import br.com.loja.fcs.config.CorsConfig;
 import br.com.loja.fcs.config.auth_jwt.JwtAuthenticationEntryPoint;
 import br.com.loja.fcs.config.auth_jwt.JwtAuthenticationFilter;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,11 +23,21 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
+    private static final String[] AUTH_WHITELIST = {
+            "/api/auth/**",
+            "/swagger-resources/**",
+            "/swagger-ui.html",
+            "/v2/api-docs",
+            "/webjars/**"
+    };
     @Autowired
     private UserDetailsService userDetailsService;
 
     @Autowired
     private JwtAuthenticationEntryPoint jwtAuthenticationEntryPoint;
+
+    @Autowired
+    private CorsConfig corsConfig;
 
     @Bean
     public JwtAuthenticationFilter jwtAuthenticationFilter() {
@@ -59,8 +70,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and()
+//                .addFilterBefore(corsConfig, JwtAuthenticationFilter.class) // Adicionar o filtro CorsConfig antes do JwtAuthenticationFilter
+//                .addFilterBefore(jwtAuthenticationFilter(), CorsConfig.class) // Adicionar o filtro JwtAuthenticationFilter antes do CorsConfig
                 .authorizeRequests()
-                .antMatchers("/api/auth/**").permitAll() // Permitir acesso ao endpoint de autenticação
+                .antMatchers("/api/auth/**", "/usuarios", "/usuarios/**").permitAll() // Permitir acesso ao endpoint de autenticação
                 .antMatchers("/produtos","/produtos/**").authenticated() // Restringir acesso aos endpoints de produtos
                 .antMatchers("/swagger-ui.html", "/swagger-ui/**", "/v2/api-docs/**", "/swagger-resources/**", "/webjars/**").permitAll() // Permitir acesso ao Swagger sem autenticação
                 .anyRequest().authenticated()
@@ -69,6 +82,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         // Adicionar o filtro JwtAuthenticationFilter antes do filtro UsernamePasswordAuthenticationFilter
         http.addFilterBefore(jwtAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class);
     }
+
 
       /*
          csrf - é uma proteção contra hackers que "roubam a sessão", como estamos usando staless, n temos sessão, e deixar essa conf(padrão habilitada)
