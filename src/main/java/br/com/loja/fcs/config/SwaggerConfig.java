@@ -5,6 +5,12 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+
+import springfox.documentation.spi.service.contexts.SecurityContext;
+import springfox.documentation.service.AuthorizationScope;
+import springfox.documentation.service.SecurityReference;
+
+
 import springfox.documentation.service.*;
 import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.PathSelectors;
@@ -14,16 +20,24 @@ import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 import java.util.Collections;
+import java.util.List;
 
 @EnableWebMvc
 @EnableSwagger2
 @Configuration
 public class SwaggerConfig implements WebMvcConfigurer {
 
-    private ApiKey apiKey() {
-        return new ApiKey("Authorization", "Authorization", "header");
+//    private ApiKey apiKey() {
+//        return new ApiKey("Authorization", "Authorization", "header");
+//    }
+
+    private BasicAuth apiKey() {
+        return new BasicAuth("basicAuth");
     }
 
+//    private ApiKey apiKey() {
+//        return new ApiKey("Token Access", "token", "header");
+//    }
     @Bean
     public Docket api() {
         return new Docket(DocumentationType.SWAGGER_2)
@@ -32,17 +46,34 @@ public class SwaggerConfig implements WebMvcConfigurer {
                 .paths(PathSelectors.any())
                 .build()
                 .apiInfo(apiInfo())
+                .securityContexts(Collections.singletonList(securityContext()))
                 .securitySchemes(Collections.singletonList(apiKey()))
+//                .globalOperationParameters(
+//                        Collections.singletonList(
+//                                new ParameterBuilder()
+//                                        .name("Authorization")
+//                                        .description("Bearer token")
+//                                        .modelRef(new ModelRef("string"))
+//                                        .parameterType("header")
+//                                        .required(false)
+//                                        .build()
+//                        )
+//                )
                 .host("localhost:8081"); // Defina a URL base da API aqui
     }
 
-    private SecurityScheme securityScheme() {
-        return new BasicAuth("basicAuth");
+    private SecurityContext securityContext() {
+        return SecurityContext.builder()
+                .securityReferences(defaultAuth())
+                .build();
     }
-
-//    private SecurityScheme securityScheme() {
-//        return new ApiKey("Token Access", "token", "header");
-//    }
+    private List<SecurityReference> defaultAuth() {
+        AuthorizationScope authorizationScope = new AuthorizationScope("global", "accessEverything");
+        AuthorizationScope[] authorizationScopes = new AuthorizationScope[]{authorizationScope};
+        return Collections.singletonList(
+                new SecurityReference("basicAuth", authorizationScopes)
+        );
+    }
 
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
