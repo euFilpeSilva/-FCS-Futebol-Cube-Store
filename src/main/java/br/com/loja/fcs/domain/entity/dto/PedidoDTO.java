@@ -1,6 +1,5 @@
-package br.com.loja.fcs.domain.dto;
+package br.com.loja.fcs.domain.entity.dto;
 
-import br.com.loja.fcs.domain.entity.Usuario;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

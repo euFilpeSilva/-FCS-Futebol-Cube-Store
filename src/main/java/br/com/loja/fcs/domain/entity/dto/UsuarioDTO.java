@@ -1,20 +1,17 @@
-package br.com.loja.fcs.domain.dto;
+package br.com.loja.fcs.domain.entity.dto;
 
-import br.com.loja.fcs.domain.ennum.RoleName;
-import br.com.loja.fcs.domain.entity.Role;
+import br.com.loja.fcs.domain.ennum.RoleEnum;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
-import java.io.Serializable;
-import java.util.List;
+import java.util.Set;
 
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class UsuarioDTO implements Serializable {
+public class UsuarioDTO {
 
     private Long id;
 
@@ -22,10 +19,12 @@ public class UsuarioDTO implements Serializable {
 
     private String sobrenome;
 
+    private String username;
+
     private String email;
 
     private String senha;
 
-    private List<RoleName> roles;
+    private Set<RoleEnum> roles;
 
 }

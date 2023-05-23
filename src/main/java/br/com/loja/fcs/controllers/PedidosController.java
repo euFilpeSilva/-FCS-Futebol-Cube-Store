@@ -1,6 +1,6 @@
 package br.com.loja.fcs.controllers;
 
-import br.com.loja.fcs.domain.dto.PedidoDTO;
+import br.com.loja.fcs.domain.entity.dto.PedidoDTO;
 import br.com.loja.fcs.services.PedidosService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

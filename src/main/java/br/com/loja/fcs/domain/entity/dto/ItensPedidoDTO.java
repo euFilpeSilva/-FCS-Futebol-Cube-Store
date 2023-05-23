@@ -1,4 +1,4 @@
-package br.com.loja.fcs.domain.dto;
+package br.com.loja.fcs.domain.entity.dto;
 
 import br.com.loja.fcs.domain.entity.Pedido;
 import br.com.loja.fcs.domain.entity.Produto;
