@@ -20,18 +20,20 @@ public class ProdutoController {
     @Autowired
     private ProdutoService produtoService;
 
-    @PreAuthorize("hasRole('ADMIN')")
-    @GetMapping
+    @PreAuthorize("hasRole('ADMIN','USER')")
+    @GetMapping("/listar")
     @ApiOperation(value = "Lista de produtos")
     public ResponseEntity<List<ProdutoDTO>> listarP() {
         return new ResponseEntity<>(produtoService.listarProdutos(), HttpStatus.OK);
     }
 
+    @PreAuthorize("hasRole('USER')")
     @GetMapping("/{id}")
     public ResponseEntity<ProdutoDTO> buscar(@PathVariable Long id) {
         return new ResponseEntity<>(produtoService.buscarBlusaPorId(id), HttpStatus.OK);
     }
 
+    @PreAuthorize("hasRole('ADMIN','USER')")
     @PostMapping("/criar")
     public ResponseEntity<String> criarProduto(@RequestBody ProdutoDTO produtoDTO) {
         return new ResponseEntity<>(produtoService.criarBlusa(produtoDTO), HttpStatus.CREATED);

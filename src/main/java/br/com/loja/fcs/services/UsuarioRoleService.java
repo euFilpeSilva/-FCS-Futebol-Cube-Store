@@ -21,6 +21,7 @@ public class UsuarioRoleService {
     public Usuario execute(UsuarioRoleDTO createUserRoleDTO) {
 
         Optional<Usuario> userExists = userRepository.findById(createUserRoleDTO.getIdUser());
+
         List<Role> roles = new ArrayList<>();
 
         if (userExists.isEmpty()) {
