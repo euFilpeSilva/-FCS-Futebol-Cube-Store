@@ -1,12 +1,10 @@
-package br.com.loja.fcs.domain.dto;
+package br.com.loja.fcs.domain.entity.dto;
 
 import br.com.loja.fcs.domain.entity.Time;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
-import java.io.Serializable;
 
 @Getter
 @Setter

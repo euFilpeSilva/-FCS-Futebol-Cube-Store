@@ -1,14 +1,9 @@
 package br.com.loja.fcs.domain.entity;
 
-import br.com.loja.fcs.domain.ennum.RoleName;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
-import java.io.Serializable;
-import java.util.Collection;
 import java.util.List;
 
 @Entity
@@ -18,7 +13,7 @@ import java.util.List;
 @Setter
 @EqualsAndHashCode
 @Table(name = "usuario")
-public class Usuario implements UserDetails, Serializable {
+public class Usuario {
     private static final long serialVersionUID = 1L;
 
     @Id
@@ -35,50 +30,15 @@ public class Usuario implements UserDetails, Serializable {
     @Column(name = "email")
     private String email;
 
-    @Column(name = "senha", nullable = false)
-    private String senha;
+    @Column(name = "password", nullable = false)
+    private String password;
 
-    @ManyToMany(cascade = CascadeType.PERSIST)
-    @JoinTable(name = "usuario_role",
-            joinColumns = @JoinColumn(name = "usuario_id"),
-            inverseJoinColumns = @JoinColumn(name = "role_id"))
+    @ManyToMany
     private List<Role> roles;
 
     @JsonIgnore
     @OneToMany(mappedBy = "usuario")
     private List<Pedido> pedidos;
 
-    @Override
-    public Collection<? extends GrantedAuthority> getAuthorities() {
-        return this.roles;
-    }
 
-    @Override
-    public String getPassword() {
-        return this.senha;
-    }
-
-
-    @Override
-    public boolean isAccountNonExpired() {
-        return true;
-    }
-
-    @Override
-    public boolean isAccountNonLocked() {
-        return true;
-    }
-
-    @Override
-    public boolean isCredentialsNonExpired() {
-        return true;
-    }
-
-    @Override
-    public boolean isEnabled() {
-        return true;
-    }
-
-    public void setRole(List<RoleName> roles) {
-    }
 }

@@ -1,23 +1,27 @@
 package br.com.loja.fcs.controllers;
 
-import br.com.loja.fcs.domain.dto.ItensPedidoDTO;
+import br.com.loja.fcs.domain.entity.dto.ItensPedidoDTO;
 import br.com.loja.fcs.domain.entity.ItemPedido;
 import br.com.loja.fcs.services.ItensPedidoService;
+import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.security.RolesAllowed;
 import java.util.List;
 
 @RestController
 @RequestMapping("/itens-pedido")
+@Api(tags = "Itens Pedidos API", description = "Endpoints para gerenciamento de pedidos")
 public class ItensPedidoController {
 
     @Autowired
     ItensPedidoService itensPedidoService;
 
     @GetMapping("/")
+    @RolesAllowed("ADMIN") // Autorização requerida: apenas usuários com a role 'ROLE_ADMIN' podem acessar este endpoint
     public ResponseEntity<List<ItensPedidoDTO>> getItensPedido() {
         return new ResponseEntity<>(itensPedidoService.getListaItensPedido(), HttpStatus.OK);
     }

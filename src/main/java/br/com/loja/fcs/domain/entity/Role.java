@@ -1,34 +1,26 @@
 package br.com.loja.fcs.domain.entity;
 
-import br.com.loja.fcs.domain.ennum.RoleName;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
 
 import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
-@NoArgsConstructor
+@Table(name = "roles")
 @AllArgsConstructor
-@Getter
-@Setter
-public class Role implements GrantedAuthority, Serializable {
-    private static final long serialVersionUID = 1L;
+@NoArgsConstructor
+@Data
+public class Role {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long roleId;
+    private Long id;
 
-    @Enumerated(EnumType.STRING)
-    @Column(nullable = false, unique = true)
-    private RoleName nomeRole;
+    private String name;
 
-    @Override
-    public String getAuthority() {
-        return this.nomeRole.toString();
+    public Role(Long id) {
+        this.id = id;
     }
 
 }

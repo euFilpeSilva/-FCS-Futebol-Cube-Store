@@ -1,7 +1,7 @@
 package br.com.loja.fcs.services;
 
 import br.com.loja.fcs.converter.Converter;
-import br.com.loja.fcs.domain.dto.PedidoDTO;
+import br.com.loja.fcs.domain.entity.dto.PedidoDTO;
 import br.com.loja.fcs.domain.entity.Pedido;
 import br.com.loja.fcs.domain.repository.PedidosRepository;
 import org.springframework.beans.factory.annotation.Autowired;

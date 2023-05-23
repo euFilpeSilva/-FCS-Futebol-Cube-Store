@@ -1,7 +1,7 @@
 package br.com.loja.fcs.services;
 
 import br.com.loja.fcs.converter.Converter;
-import br.com.loja.fcs.domain.dto.ItensPedidoDTO;
+import br.com.loja.fcs.domain.entity.dto.ItensPedidoDTO;
 import br.com.loja.fcs.domain.entity.ItemPedido;
 import br.com.loja.fcs.domain.entity.Produto;
 import br.com.loja.fcs.domain.repository.ItensPedidosRepository;
