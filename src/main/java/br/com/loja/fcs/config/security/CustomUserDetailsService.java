@@ -8,22 +8,26 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
+
 @Service
 public class CustomUserDetailsService implements UserDetailsService {
 
     @Autowired
-    UsuarioRepository userRepository;
+    private UsuarioRepository userRepository;
 
     @Override
+    @Transactional
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 
         Usuario existsUser = userRepository.findByUsernameFetchRoles(username);
 
         if (existsUser == null) {
-            throw new Error("User does not exists!");
+            throw new UsernameNotFoundException("User not found with username: " + username);
         }
 
         return UserPrincipal.create(existsUser);
     }
 
 }
+

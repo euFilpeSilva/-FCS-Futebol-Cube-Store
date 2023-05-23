@@ -1,6 +1,8 @@
 package br.com.loja.fcs.config.security;
 
+import br.com.loja.fcs.domain.entity.Role;
 import br.com.loja.fcs.domain.entity.Usuario;
+import lombok.Data;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -10,15 +12,20 @@ import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Data
 public class UserPrincipal implements UserDetails {
 
+    private Long id;
     private String username;
     private String password;
+    private List<Role> roles;
     private Collection<? extends GrantedAuthority> authorities;
 
     public UserPrincipal( Usuario user) {
+        this.id = user.getId();
         this.username = user.getUsername();
         this.password = user.getPassword();
+        this.roles = user.getRoles();
 
         List<SimpleGrantedAuthority> authorities = new ArrayList<>();
 
@@ -70,4 +77,5 @@ public class UserPrincipal implements UserDetails {
     public boolean isEnabled() {
         return true;
     }
+
 }

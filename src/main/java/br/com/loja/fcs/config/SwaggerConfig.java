@@ -6,6 +6,8 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
+import springfox.documentation.builders.ParameterBuilder;
+import springfox.documentation.schema.ModelRef;
 import springfox.documentation.spi.service.contexts.SecurityContext;
 import springfox.documentation.service.AuthorizationScope;
 import springfox.documentation.service.SecurityReference;
@@ -31,13 +33,14 @@ public class SwaggerConfig implements WebMvcConfigurer {
 //        return new ApiKey("Authorization", "Authorization", "header");
 //    }
 
-    private BasicAuth apiKey() {
-        return new BasicAuth("basicAuth");
-    }
-
-//    private ApiKey apiKey() {
-//        return new ApiKey("Token Access", "token", "header");
+//    private BasicAuth apiKey() {
+//        return new BasicAuth("basicAuth");
 //    }
+
+    private ApiKey apiKey() {
+
+        return new ApiKey( "Bearer", "token", "header");
+    }
     @Bean
     public Docket api() {
         return new Docket(DocumentationType.SWAGGER_2)
@@ -48,17 +51,6 @@ public class SwaggerConfig implements WebMvcConfigurer {
                 .apiInfo(apiInfo())
                 .securityContexts(Collections.singletonList(securityContext()))
                 .securitySchemes(Collections.singletonList(apiKey()))
-//                .globalOperationParameters(
-//                        Collections.singletonList(
-//                                new ParameterBuilder()
-//                                        .name("Authorization")
-//                                        .description("Bearer token")
-//                                        .modelRef(new ModelRef("string"))
-//                                        .parameterType("header")
-//                                        .required(false)
-//                                        .build()
-//                        )
-//                )
                 .host("localhost:8081"); // Defina a URL base da API aqui
     }
 
@@ -71,9 +63,10 @@ public class SwaggerConfig implements WebMvcConfigurer {
         AuthorizationScope authorizationScope = new AuthorizationScope("global", "accessEverything");
         AuthorizationScope[] authorizationScopes = new AuthorizationScope[]{authorizationScope};
         return Collections.singletonList(
-                new SecurityReference("basicAuth", authorizationScopes)
+                new SecurityReference("Bearer", authorizationScopes)
         );
     }
+
 
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
