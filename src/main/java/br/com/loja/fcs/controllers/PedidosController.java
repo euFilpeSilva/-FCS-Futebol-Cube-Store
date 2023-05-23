@@ -2,6 +2,7 @@ package br.com.loja.fcs.controllers;
 
 import br.com.loja.fcs.domain.entity.dto.PedidoDTO;
 import br.com.loja.fcs.services.PedidosService;
+import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -11,6 +12,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/pedidos")
+@Api(tags = "Pedidos API", description = "Endpoints para gerenciamento de pedidos")
 public class PedidosController {
 
     @Autowired
