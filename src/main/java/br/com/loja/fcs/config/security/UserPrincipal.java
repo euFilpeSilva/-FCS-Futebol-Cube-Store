@@ -10,6 +10,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 @Data
@@ -18,14 +19,14 @@ public class UserPrincipal implements UserDetails {
     private Long id;
     private String username;
     private String password;
-    private List<Role> roles;
+    private Set<String> roles;
     private Collection<? extends GrantedAuthority> authorities;
 
     public UserPrincipal( Usuario user) {
         this.id = user.getId();
         this.username = user.getUsername();
         this.password = user.getPassword();
-        this.roles = user.getRoles();
+        this.roles = user.getRoles().stream().map(Role::getName).collect(Collectors.toSet());
 
         List<SimpleGrantedAuthority> authorities = new ArrayList<>();
 
@@ -35,6 +36,9 @@ public class UserPrincipal implements UserDetails {
         }).collect(Collectors.toList());
 
         this.authorities = authorities;
+    }
+
+    public UserPrincipal() {
 
     }
 
@@ -78,4 +82,6 @@ public class UserPrincipal implements UserDetails {
         return true;
     }
 
+    public void setRole(Role role) {
+    }
 }

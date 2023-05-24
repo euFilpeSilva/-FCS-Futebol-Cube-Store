@@ -25,23 +25,17 @@ public class JwtTokenProvider {
         UserPrincipal userPrincipal = (UserPrincipal) authentication.getPrincipal();
         Date now = new Date();
         Date expiryDate = new Date(now.getTime() + jwtExpirationInMs);
-
-        List<String> roleNames = userPrincipal.getRoles().stream()
-                .map(Role::getName) // Obtém apenas o nome das roles
-                .collect(Collectors.toList());
-
         return Jwts.builder()
                 .setSubject(userPrincipal.getUsername())
                 .claim("id", userPrincipal.getId())
                 .claim("username", userPrincipal.getUsername())
                 .claim("password", userPrincipal.getPassword())
-                .claim("roles", roleNames) // Adiciona as roles como uma claim de lista de strings
+                .claim("roles", userPrincipal.getRoles()) // Adiciona as roles como uma claim de lista de strings
                 .setIssuedAt(new Date())
                 .setExpiration(expiryDate)
                 .signWith(SignatureAlgorithm.HS512, jwtSecret)
                 .compact();
     }
-
 
     public String getUsernameFromToken(String token) {
         Claims claims = Jwts.parser()

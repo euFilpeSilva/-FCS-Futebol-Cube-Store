@@ -10,6 +10,7 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.BeanIds;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 
+import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
@@ -70,8 +71,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and()
-//                .addFilterBefore(corsConfig, JwtAuthenticationFilter.class) // Adicionar o filtro CorsConfig antes do JwtAuthenticationFilter
-//                .addFilterBefore(jwtAuthenticationFilter(), CorsConfig.class) // Adicionar o filtro JwtAuthenticationFilter antes do CorsConfig
                 .authorizeRequests()
                 .antMatchers("/api/auth/**", "/usuarios", "/usuarios/**").permitAll() // Permitir acesso ao endpoint de autenticação
                 .antMatchers("/produtos","/produtos/**").authenticated() // Restringir acesso aos endpoints de produtos
@@ -82,14 +81,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         // Adicionar o filtro JwtAuthenticationFilter antes do filtro UsernamePasswordAuthenticationFilter
         http.addFilterBefore(jwtAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class);
     }
-
-
       /*
          csrf - é uma proteção contra hackers que "roubam a sessão", como estamos usando staless, n temos sessão, e deixar essa conf(padrão habilitada)
          não teria sentido, pois é um cenário impossivel, por isso desativamos.
          */
-
 }
-
-
-
